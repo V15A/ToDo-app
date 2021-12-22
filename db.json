@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "tag": "Kotityöt",
+      "name": "Pese pyykit",
+      "time": "2021-12-20",
+      "status": "pending",
+      "id": "1"
+    },
+    {
+      "tag": "Kotityöt",
+      "name": "Vie roskat",
+      "time": "2021-12-19",
+      "status": "pending",
+      "id": "2"
+    },
+    {
+      "tag": "Kouluhommat",
+      "name": "Edistä projektia",
+      "time": "2021-12-20",
+      "status": "done",
+      "id": "3"
+    },
+    {
+      "tag": "Muut",
+      "name": "Osta lahjat",
+      "time": "2021-12-20",
+      "status": "done",
+      "id": "4"
+    },
+    {
+      "tag": "Jännä",
+      "name": "Pelaa",
+      "time": "2021-12-21",
+      "status": "pending",
+      "id": "SNjIOcQ"
+    }
+  ]
+}

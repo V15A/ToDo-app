@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+}
+/*body {
+  background-color: white;
+}*/
+.history,
+.info {
+  text-align: center;
+}
+.left {
+  text-align: center;
+}
+
+/****************************************************************/
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.navbar a {
+  color: #0f2639;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-align: center;
+  display: none;
+}
+.navbar a.icon {
+  float: left;
+  display: block;
+}
+
+.navbar.responsive {
+  /*position: relative;*/
+  padding-bottom: content;
+}
+.navbar.responsive .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.navbar.responsive a {
+  float: none;
+  display: block;
+}
+
+.navbar a:hover {
+  color: #e43a5f;
+}
+/****************************************************************/
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    overflow: hidden;
+    margin: 0px;
+  }
+
+  .navbar a {
+    display: block;
+    float: left;
+  }
+  /*to not show burger menu*/
+  .navbar .icon {
+    display: none !important;
+  }
+}
