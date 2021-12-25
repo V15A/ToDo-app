@@ -2,27 +2,22 @@ import "./App.css";
 import React from "react";
 import Sidebar from "./sidebar";
 import CreateList from "./taskList";
-import NewTask from "./addTask";
+// import NewTask from "./addTask";
+import Input from "./input";
 
 class App extends React.Component {
   state = {
     data: [],
     loading: true,
-    newData: {
-      tag: "Jännä",
-      name: "Pelaa",
-      time: "2021-12-21",
-      status: "pending",
-    },
   };
 
   componentDidMount() {
     this.getData();
   }
-
+  /*
   componentDidUpdate() {
     this.getData();
-  }
+  }*/
 
   getData = async () => {
     try {
@@ -42,18 +37,11 @@ class App extends React.Component {
         <div className="App">
           <div>
             <Sidebar />
-            <h1>Main view</h1>
-            <p>This is the front page of the app</p>
             <h1>TASK LIST</h1>
             <div className="list-container">
               <CreateList {...this.state.data} />
             </div>
-            <button
-              className="addButton"
-              onClick={() => NewTask(this.state.newData)}
-            >
-              Add task
-            </button>
+            <Input />
           </div>
           {console.log(this.state.data)}
         </div>

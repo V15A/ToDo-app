@@ -1,8 +1,7 @@
-export default async function NewTasks(props) {
+export default async function EditTask(props, id) {
   try {
-    console.log(props.name);
-    let res = await fetch("http://localhost:3001/tasks", {
-      method: "POST",
+    let res = await fetch("http://localhost:3001/tasks/" + id, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
