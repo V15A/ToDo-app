@@ -1,52 +1,48 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./sidebar";
 import CreateList from "./taskList";
 // import NewTask from "./addTask";
 import Input from "./input";
 
-class App extends React.Component {
-  state = {
-    data: [],
-    loading: true,
-  };
+function App() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  componentDidMount() {
-    this.getData();
-  }
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch("http://localhost:3010/tasks");
+        const json = await res.json();
+        setData(json);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, [isLoading]);
   /*
   componentDidUpdate() {
     this.getData();
   }*/
 
-  getData = async () => {
-    try {
-      const res = await fetch("http://localhost:3001/tasks");
-      const json = await res.json();
-      this.setState({ loading: false, data: json });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  render() {
-    if (this.state.loading) {
-      return <p>LOADING...</p>;
-    } else {
-      return (
-        <div className="App">
-          <div>
-            <Sidebar />
-            <h1>TASK LIST</h1>
-            <div className="list-container">
-              <CreateList {...this.state.data} />
-            </div>
-            <Input />
+  if (isLoading) {
+    return <p>LOADING...</p>;
+  } else {
+    return (
+      <div className="App">
+        <div>
+          <Sidebar />
+          <h1>TASK LIST</h1>
+          <div className="list-container">
+            <CreateList {...data} />
           </div>
-          {console.log(this.state.data)}
+          <Input />
         </div>
-      );
-    }
+        {console.log(data)}
+      </div>
+    );
   }
 }
 
