@@ -3,6 +3,7 @@
  */
 import DeleteTask from "./deleteTask";
 import EditTask from "./editTask";
+import EditForm from "./editForm";
 
 function CreateTask(task) {
   console.log(task);
@@ -14,7 +15,7 @@ function CreateTask(task) {
         {task.tag}
       </a>
       <p>{task.time}</p>
-      <button onClick={() => EditTask(task, task.id)}>Edit</button>{" "}
+      <button onClick={() => EditForm(task)}>Edit</button>{" "}
       <button onClick={() => DeleteTask(task.id)}>Delete</button>{" "}
       <button onClick={() => EditTask(task.id)}>Done</button>
     </div>

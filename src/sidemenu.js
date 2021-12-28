@@ -29,7 +29,6 @@ export default function Sidemenu() {
 // this function opens the side menu of the app and displays the options
 // available (including but not limited to task view, info and history)
 let open = function () {
-  console.log("JAA");
   var x = document.getElementById("navid");
   if (x.className === "navbar") {
     x.className += " responsive";
