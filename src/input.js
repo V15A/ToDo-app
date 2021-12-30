@@ -20,7 +20,7 @@ const Input = (props) => {
     let date =
       time.getFullYear() +
       "-" +
-      time.getMonth() +
+      (time.getMonth() + 1) +
       "-" +
       time.getDate() +
       " " +
@@ -45,14 +45,16 @@ const Input = (props) => {
         "Please give a valid tag for the task. Tag must contain 1 or more characters."
       );
     } else {}*/
+
     NewTask({
       name: textInput,
       tag: tagInput,
       time: getDate(),
       status: "pending",
     });
-    alert("New task successfully added!");
     clearInputs();
+    alert("New task successfully added!");
+    props.update();
   };
 
   const handleChange = (event) => {

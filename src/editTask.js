@@ -8,7 +8,8 @@ export default async function EditTask(oldData, newData) {
       body: JSON.stringify({
         name: newData.name,
         tag: newData.tag,
-        date: oldData.date,
+        time: oldData.time,
+        status: oldData.status,
       }),
     });
     console.log(res);

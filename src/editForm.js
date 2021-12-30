@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EditTask from "./editTask";
 
-function EditForm(props) {
-  console.log("FORM" + props);
-  this.state = {
-    submit: false,
-    textInput: "",
-    tagInput: "",
-    oldData: props,
-    newData: { name: props.name, tag: props.tag, date: props.date },
-  };
+/*
+function EditButton(props) {
+  console.log(props);
 
-  const checker = () => {
+  return <button onClick={new EditForm(props)}></button>;
+}*/
+
+class EditForm extends React.Component {
+  constructor(props) {
+    console.log(props.update);
+    super(props);
+    this.state = {
+      renderEdit: false,
+      submit: true,
+      parentUpdater: props.update,
+      textInput: props.name,
+      tagInput: props.tag,
+      oldData: props,
+      newData: { name: props.name, tag: props.tag, time: props.date },
+    };
+  }
+
+  checker = () => {
     if (this.state.textInput !== "" && this.state.tagInput !== "") {
       this.setState({ submit: false });
     } else if (this.state.textInput === "" || this.state.tagInput === "") {
@@ -19,40 +31,66 @@ function EditForm(props) {
     }
   };
 
-  const handleChange = (event) => {
+  handleChange = (event) => {
     this.setState({ textInput: event.target.value });
+    this.setState((prevState) => ({
+      newData: { ...prevState.newData, name: event.target.value },
+    }));
+    this.checker();
   };
-  const handleTagChange = (event) => {
+  handleTagChange = (event) => {
     this.setState({ tagInput: event.target.value });
+    this.setState((prevState) => ({
+      newData: { ...prevState.newData, tag: event.target.value },
+    }));
+    this.checker();
   };
 
-  return (
-    <div>
-      {console.log(this.state.newData)}
-      <h4>Modify this task</h4>
-      <input
-        value={this.state.textInput}
-        onChange={handleChange}
-        placeholder="Description/name of the task"
-      />
-      <br />
-      <input
-        onChange={handleTagChange}
-        value={this.state.tagInput}
-        placeholder="Give a tag for the task"
-      />
-      <div /*onClick={handleClick}*/ className="icon">
-        <i className="fa fa-play" />
-        <button
-          id="submitButton"
-          onClick={() => EditTask(this.state.oldData, this.state.newData)}
-          disabled={this.state.submit}
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-  );
-}
+  toggleButton = () => {
+    this.setState({ renderEdit: !this.state.renderEdit });
+  };
 
+  handleClick = (event) => {
+    EditTask(this.state.oldData, this.state.newData);
+    this.toggleButton();
+    setTimeout(() => {}, 100);
+    this.checker();
+    this.state.parentUpdater();
+  };
+
+  render() {
+    if (this.state.renderEdit) {
+      return (
+        <div>
+          {console.log(this.state.newData)}
+          <h4 style={{ margin: 0 }}>Modify this task</h4>
+          <input
+            value={this.state.textInput}
+            onChange={this.handleChange}
+            placeholder={this.state.textInput}
+          />
+          <br />
+          <input
+            onChange={this.handleTagChange}
+            value={this.state.tagInput}
+            placeholder="Give a tag for the task"
+          />
+          <div /*onClick={handleClick}*/ className="icon">
+            <i className="fa fa-play" />
+            <button onClick={() => this.toggleButton()}>Cancel</button>{" "}
+            <button
+              id="submitButton"
+              onClick={this.handleClick}
+              disabled={this.state.submit}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      );
+    } else {
+      return <button onClick={() => this.toggleButton()}>Edit</button>;
+    }
+  }
+}
 export default EditForm;

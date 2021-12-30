@@ -6,8 +6,10 @@ import CreateList from "./taskList";
 import Input from "./input";
 
 function App() {
+  const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -21,12 +23,21 @@ function App() {
       }
     }
     getData();
-  }, [isLoading]);
+  }, [update]);
+
+  const toggleUpdate = () => {
+    setUpdate(!update);
+    console.log(update);
+  };
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
   /*
   componentDidUpdate() {
     this.getData();
   }*/
-
   if (isLoading) {
     return <p>LOADING...</p>;
   } else {
@@ -35,12 +46,23 @@ function App() {
         <div>
           <Sidebar />
           <h1>TASK LIST</h1>
-          <div className="list-container">
-            <CreateList {...data} />
+          <div>
+            <input
+              placeholder="Search by name"
+              value={search}
+              onChange={handleSearch}
+            ></input>{" "}
           </div>
-          <Input />
+          <div className="list-container">
+            <CreateList
+              {...data}
+              search={search}
+              status="pending"
+              update={toggleUpdate}
+            />
+          </div>
+          <Input update={toggleUpdate} />
         </div>
-        {console.log(data)}
       </div>
     );
   }
