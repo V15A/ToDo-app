@@ -1,67 +1,46 @@
 {
   "tasks": [
     {
-      "tag": "Kotityöt",
-      "name": "Pese pyykit",
-      "time": "2021-12-20",
+      "name": "Joulupäivä",
+      "tag": "Joulu",
+      "time": "2021-12-19 14:55:39",
       "status": "pending",
       "id": "1"
     },
     {
-      "tag": "Kotityöt",
-      "name": "Vie roskat",
-      "time": "2021-12-19",
-      "status": "pending",
-      "id": "2"
+      "id": "2",
+      "name": "Edistä prokkista",
+      "tag": "Koulu",
+      "time": "2021-12-28 20:25:6",
+      "status": "pending"
     },
     {
       "tag": "Kouluhommat",
       "name": "Edistä projektia",
-      "time": "2021-12-20",
+      "time": "2021-12-20 21:33:39",
       "status": "done",
       "id": "3"
     },
     {
       "tag": "Muut",
       "name": "Osta lahjat",
-      "time": "2021-12-20",
+      "time": "2021-12-20 7:24:39",
       "status": "done",
       "id": "4"
     },
     {
-      "name": "Haista paska",
-      "tag": "Koo",
-      "time": "2021-11-25 23:25:19",
-      "status": "pending",
-      "id": "ese9U9W"
+      "id": "ese9U9W",
+      "name": "Vie roskatt",
+      "tag": "Kotityöt",
+      "time": "2021-12-19 3:17:39",
+      "status": "pending"
     },
     {
-      "name": "Paskaa",
-      "tag": "Paska",
-      "time": "2021-12-28 20:25:6",
-      "status": "pending",
-      "id": "XS5KEKW"
-    },
-    {
-      "name": "vikaa",
-      "tag": "nojoo",
+      "name": "Asiallinen",
+      "tag": "Joo",
       "time": "2021-12-28 21:33:39",
       "status": "pending",
-      "id": "dKRAE2J"
-    },
-    {
-      "name": "drgred",
-      "tag": "drger",
-      "time": "2021-12-28 22:10:39",
-      "status": "pending",
-      "id": "tHlBxF7"
-    },
-    {
-      "name": "djysdf",
-      "tag": "fghsd",
-      "time": "2021-12-28 22:10:46",
-      "status": "pending",
-      "id": "sz86qUd"
+      "id": "XS5KEKW"
     }
   ]
 }
