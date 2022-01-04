@@ -12,7 +12,7 @@ export default async function EditTask(oldData, newData) {
         status: oldData.status,
       }),
     });
-    console.log(res);
+    console.log(res.status);
   } catch (err) {
     console.log(err);
   }

@@ -10,7 +10,6 @@ function EditButton(props) {
 
 class EditForm extends React.Component {
   constructor(props) {
-    console.log(props.update);
     super(props);
     this.state = {
       renderEdit: false,
@@ -48,21 +47,20 @@ class EditForm extends React.Component {
 
   toggleButton = () => {
     this.setState({ renderEdit: !this.state.renderEdit });
+    //this.props.update();
   };
 
   handleClick = (event) => {
     EditTask(this.state.oldData, this.state.newData);
     this.toggleButton();
-    setTimeout(() => {}, 100);
     this.checker();
-    this.state.parentUpdater();
+    this.props.update();
   };
 
   render() {
     if (this.state.renderEdit) {
       return (
         <div>
-          {console.log(this.state.newData)}
           <h4 style={{ margin: 0 }}>Modify this task</h4>
           <input
             value={this.state.textInput}

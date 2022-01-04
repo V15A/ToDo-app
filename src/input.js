@@ -33,8 +33,6 @@ const Input = (props) => {
   }
 
   const handleClick = () => {
-    console.log(textInput);
-    console.log(tagInput);
     /*
     if (textInput.length < 2) {
       alert(
@@ -70,7 +68,7 @@ const Input = (props) => {
   };
 
   return (
-    <div>
+    <div /*style={{ position: "absolute", right: "40%", top: "20px" }}*/>
       <input
         value={textInput}
         onChange={handleChange}
