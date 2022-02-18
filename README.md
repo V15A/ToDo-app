@@ -9,3 +9,17 @@ This app is built with reactjs and uses json server as "fake" database where the
   - Arrange tasks
   - Mark tasks as done
   - Archive where you can view tasks marked as done
+
+## How to use
+
+### Requirements
+   - Nodejs(and npm/yarn)
+    
+### Run the app
+   If using yarn replace npm with yarn
+   
+    - npm install
+    
+    - json-server -H localhost --port 3010 --watch db.json
+    
+    - npm start
