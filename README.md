@@ -18,6 +18,10 @@ This app is built with reactjs and uses json server as "fake" database where the
 ### Run the app
    If using yarn replace npm with yarn
    
+   1. Clone repository and navigate to the folder
+   
+   2. Run the following commands in terminal while in the app folder
+
     - npm install
     
     - json-server -H localhost --port 3010 --watch db.json
