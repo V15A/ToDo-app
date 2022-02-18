@@ -26,4 +26,6 @@ This app is built with reactjs and uses json server as "fake" database where the
     
     - json-server -H localhost --port 3010 --watch db.json
     
+   3. Open second terminal in same folder and run
+
     - npm start
